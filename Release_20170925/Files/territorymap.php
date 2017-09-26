@@ -2437,6 +2437,12 @@ and open the template in the editor.
                  else{
                       html +='<option value="DNC">Do Not Call</option>';
                  }
+                 if (column.type==="DNS") {             
+                      html +='<option value="DNS" selected>Danger Not Safe</option>';  
+                 }               
+                 else{               
+                      html +='<option value="DNS">Danger Not Safe</option>';  
+                 } 				 
                  if(column.type==="HH") {
                       html +='<option value="HH" selected>Home</option>';                     
                  }
@@ -2463,15 +2469,7 @@ and open the template in the editor.
                     else
                     {
                         html +='<option value="WL">Write Letter</option>';  
-                    } 
-                    if (column.type==="PC")
-                    {
-                        html +='<option value="PC" selected>Phone Call</option>';  
-                    }
-                    else
-                    {
-                        html +='<option value="PC">Phone Call</option>';  
-                    }                      
+                    }                    
                  }                     
                 
          html +=    '</select></td></tr>'; 
@@ -2573,6 +2571,12 @@ and open the template in the editor.
                  else{
                       html +='<option value="DNC">Do Not Call</option>';
                  }
+                 if (column.type==="DNS") {             
+                      html +='<option value="DNS" selected>Danger Not Safe</option>';  
+                 }               
+                 else{               
+                      html +='<option value="DNS">Danger Not Safe</option>';  
+                 } 					 
                  if(column.type==="HH") {
                       html +='<option value="HH" selected>Home</option>';                     
                  }
@@ -2678,8 +2682,13 @@ and open the template in the editor.
                 html +='<td>';  
 
                 if (column.type==="PC")
-                {           
-                     html +='<div class="tooltip"><a href="tel:+18503211442"><img src = "icons/Phone_Small.png"></a>'; 
+                {       
+                var phonenumber=column.phone.toString().replace('-', ''); 
+				phonenumber=phonenumber.toString().replace(' ', ''); 				
+				phonenumber=phonenumber.toString().replace('(', ''); 
+				phonenumber=phonenumber.toString().replace(')', ''); 	
+			
+                     html +='<div class="tooltip"><a href="tel:+1' + phonenumber + '"><img src = "icons/Phone_Small.png"></a>'; 
                 }
                 else
                 {

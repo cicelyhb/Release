@@ -2642,8 +2642,13 @@ class Login{
            echo $sngquote.'<td>'.$sngquote.' +',PHP_EOL;  
            
            if ($column[5]=="PC")
-           {           
-                echo $sngquote.'<div class="tooltip"><a href="tel:+18503211442"><img src = "icons/Phone_Small.png"></a>'.$sngquote.' +',PHP_EOL; 
+           {      
+                $phonenumber=str_replace("-","",$column[16]);
+				$phonenumber=str_replace(" ","",$phonenumber);
+				$phonenumber=str_replace("(","",$phonenumber);	
+				$phonenumber=str_replace(")","",$phonenumber);
+				
+                echo $sngquote.'<div class="tooltip"><a href="tel:+1'.$phonenumber.'"><img src = "icons/Phone_Small.png"></a>'.$sngquote.' +',PHP_EOL; 
            }
            else
            {
